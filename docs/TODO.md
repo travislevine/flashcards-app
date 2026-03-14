@@ -24,21 +24,21 @@
 - [x] Create `CategorySelectionPage` to pick a category  
   ✅ *Acceptance Criteria:* Lists all 3 categories; clicking one proceeds to Study or Quiz based on mode selected.
 
-- [] Create `Flashcard` component to show:
-  - [] Spanish word (front side)  
+- [x] Create `Flashcard` component to show:
+  - [x] Spanish word (front side)  
     ✅ *Acceptance Criteria:* Spanish word is displayed by default.
-  - [] English word (back side)  
+  - [x] English word (back side)  
     ✅ *Acceptance Criteria:* Card flips to show English translation.
-  - [] Flip interaction (click-to-flip)  
+  - [x] Flip interaction (click-to-flip)  
     ✅ *Acceptance Criteria:* Card responds to click or tap and visually flips to show other side.
 
-- [ ] Display "✅ Right" and "❌ Wrong" buttons after flipping  
+- [x] Display "✅ Right" and "❌ Wrong" buttons after flipping  
   ✅ *Acceptance Criteria:* Buttons appear only after flipping and let the user mark the answer as correct or incorrect. After clicking a button, the next card is displayed.
 
-- [ ] Track incorrect answers in React state  
+- [x] Track incorrect answers in React state  
   ✅ *Acceptance Criteria:* Cards marked as "Wrong" are stored in component-level or app-level state for later use.
 
-- [ ] Allow user to move through all cards in the selected category  
+- [x] Allow user to move through all cards in the selected category  
   ✅ *Acceptance Criteria:* User can navigate through the flashcards one by one until all cards are reviewed.
 
 ## 🟡 Phase 3: Redo Mode (Repeat Wrong Cards)

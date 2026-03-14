@@ -1,0 +1,104 @@
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.flashcard {
+  width: 320px;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+
+.flashcard-front, .flashcard-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background-color: #2a2a2a;
+  border: 2px solid #3a3a3a;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: light) {
+  .flashcard-front, .flashcard-back {
+    background-color: #ffffff;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+}
+
+.flashcard-front h3, .flashcard-back h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.flip-hint {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-top: 1rem;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard-actions {
+  display: flex;
+  gap: 1rem;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-action {
+  padding: 0.8em 1.5em;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.right-btn {
+  background-color: #1e4620;
+}
+.right-btn:hover {
+  border-color: #4caf50;
+}
+
+.wrong-btn {
+  background-color: #5c1616;
+}
+.wrong-btn:hover {
+  border-color: #f44336;
+}
+
+@media (prefers-color-scheme: light) {
+  .right-btn {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+  }
+  .wrong-btn {
+    background-color: #ffebee;
+    color: #b71c1c;
+  }
+}
