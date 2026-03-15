@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Renders the home page with main navigation options.
+ */
 const HomePage: React.FC = () => {
   return (
-    <div className="home-page">
+    <div className="page-container">
       <h1>Spanish Flashcards</h1>
       <p>Welcome to your Spanish learning companion!</p>
       

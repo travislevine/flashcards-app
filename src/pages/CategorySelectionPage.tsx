@@ -5,6 +5,10 @@ interface CategorySelectionPageProps {
   mode: 'study' | 'quiz';
 }
 
+/**
+ * Displays a list of available categories for a specific mode (study or quiz).
+ * Navigates the user to the selected category.
+ */
 const CategorySelectionPage: React.FC<CategorySelectionPageProps> = ({ mode }) => {
   const categories = [
     { id: 'animals', label: 'Animals', btnClass: 'btn-study' },
@@ -13,15 +17,15 @@ const CategorySelectionPage: React.FC<CategorySelectionPageProps> = ({ mode }) =
   ];
 
   return (
-    <div className="category-selection-page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
+    <div className="page-container">
       <h2>Select a Category for {mode === 'study' ? 'Study' : 'Quiz'}</h2>
       <div className="nav-buttons">
         {categories.map((cat) => (
-          <Link key={cat.id} to={`/${mode}/${cat.id}`} className={`btn ${cat.btnClass}`} style={{ textAlign: 'center' }}>
+          <Link key={cat.id} to={`/${mode}/${cat.id}`} className={`btn ${cat.btnClass}`}>
             {cat.label}
           </Link>
         ))}
-        <Link to="/" className="btn btn-back" style={{ textAlign: 'center', marginTop: '1rem' }}>
+        <Link to="/" className="btn btn-back mt-1">
           Back to Home
         </Link>
       </div>

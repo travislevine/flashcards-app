@@ -5,14 +5,19 @@ import CategorySelectionPage from './pages/CategorySelectionPage';
 import StudyPage from './pages/StudyPage';
 import './App.css';
 
-// Placeholder components to satisfy routing temporarily
+/**
+ * Temporary component for pages that are not yet implemented.
+ */
 const PlaceholderPage: React.FC<{ title: string }> = ({ title }) => (
-  <div style={{ padding: '20px', textAlign: 'center' }}>
+  <div className="page-container mt-2 text-center">
     <h2>{title}</h2>
     <a href="/" style={{ color: 'blue', textDecoration: 'underline' }}>Back to Home</a>
   </div>
 );
 
+/**
+ * Main application component responsible for routing.
+ */
 function App() {
   return (
     <Router>

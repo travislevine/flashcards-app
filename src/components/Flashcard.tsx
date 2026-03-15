@@ -8,6 +8,10 @@ interface FlashcardProps {
   onWrong?: () => void;
 }
 
+/**
+ * Flashcard component that displays a Spanish word and flips to reveal the English translation.
+ * Also provides buttons to mark the card as correct or incorrect.
+ */
 const Flashcard: React.FC<FlashcardProps> = ({ spanish, english, onRight, onWrong }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
