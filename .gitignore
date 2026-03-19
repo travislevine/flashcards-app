@@ -27,3 +27,6 @@ dist-ssr
 playwright-report/
 test-results/
 .playwright/
+
+# Local Cursor MCP configuration
+.cursor/mcp.json
