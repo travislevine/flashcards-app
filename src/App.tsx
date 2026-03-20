@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CategorySelectionPage from './pages/CategorySelectionPage';
 import StudyPage from './pages/StudyPage';
+import RedoPage from './pages/RedoPage';
 import './App.css';
 
 /**
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/study" element={<CategorySelectionPage mode="study" />} />
           <Route path="/study/:category" element={<StudyPage />} />
+          <Route path="/redo/:category" element={<RedoPage />} />
           <Route path="/quiz" element={<CategorySelectionPage mode="quiz" />} />
           <Route path="/stats" element={<PlaceholderPage title="Statistics Page" />} />
         </Routes>

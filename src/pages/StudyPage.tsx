@@ -34,8 +34,16 @@ const StudyPage: React.FC = () => {
         <p>You finished all cards in the <strong>{category}</strong> category.</p>
         <p>Cards marked wrong: {wrongCards.length}</p>
         <div className="nav-buttons mt-1">
-            <Link to="/study" className="btn btn-study">Pick another category</Link>
-            <Link to="/" className="btn btn-back">Back to Home</Link>
+          {wrongCards.length > 0 && (
+            <Link 
+              to={`/redo/${category}?wrong=${wrongCards.join(',')}`} 
+              className="btn btn-study"
+            >
+              Redo Wrong Cards ({wrongCards.length})
+            </Link>
+          )}
+          <Link to="/study" className="btn btn-quiz">Pick another category</Link>
+          <Link to="/" className="btn btn-back">Back to Home</Link>
         </div>
       </div>
     );
