@@ -21,14 +21,14 @@ const QuizSelectionPage: React.FC = () => {
         <h3 style={{ margin: '0', textAlign: 'center' }}>1. Select Type</h3>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           <button 
-            className={`btn ${quizType === 'multiple-choice' ? 'btn-quiz' : 'btn-back'}`}
+            className={`btn ${quizType === 'multiple-choice' ? 'btn-quiz active' : 'btn-back'}`}
             onClick={() => setQuizType('multiple-choice')}
             style={{ flex: 1, padding: '0.8em 0.5em', fontSize: '1rem' }}
           >
             Multiple Choice
           </button>
           <button 
-            className={`btn ${quizType === 'fill-in-the-blank' ? 'btn-quiz' : 'btn-back'}`}
+            className={`btn ${quizType === 'fill-in-the-blank' ? 'btn-quiz active' : 'btn-back'}`}
             onClick={() => setQuizType('fill-in-the-blank')}
             style={{ flex: 1, padding: '0.8em 0.5em', fontSize: '1rem' }}
           >
