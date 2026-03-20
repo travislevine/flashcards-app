@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { flashcards } from '../data/flashcards';
+import { useStats, type AppStats } from '../hooks/useStats';
 
 /**
  * Manages the quiz session for a given category and quiz type.
  */
 const QuizPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
+  const { recordAnswer } = useStats();
   const [searchParams] = useSearchParams();
   const quizType = searchParams.get('type') || 'multiple-choice';
   
@@ -55,18 +57,18 @@ const QuizPage: React.FC = () => {
     if (isAnswered) return;
     setSelectedOption(option);
     setIsAnswered(true);
-    if (option === currentCard.english) {
-      setCorrectCount(prev => prev + 1);
-    }
+    const correct = option === currentCard.english;
+    if (correct) setCorrectCount(prev => prev + 1);
+    recordAnswer(category as keyof AppStats, correct);
   };
 
   const handleFillInBlankSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isAnswered || !textInput.trim()) return;
     setIsAnswered(true);
-    if (textInput.trim().toLowerCase() === currentCard.english.toLowerCase()) {
-      setCorrectCount(prev => prev + 1);
-    }
+    const correct = textInput.trim().toLowerCase() === currentCard.english.toLowerCase();
+    if (correct) setCorrectCount(prev => prev + 1);
+    recordAnswer(category as keyof AppStats, correct);
   };
 
   const handleNext = () => {

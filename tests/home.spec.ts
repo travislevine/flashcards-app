@@ -19,12 +19,12 @@ test.describe('Home Page', () => {
   test('should navigate to Quiz Mode category selection', async ({ page }) => {
     await page.click('text=Quiz Mode');
     await expect(page).toHaveURL(/\/quiz$/);
-    await expect(page.locator('h2')).toHaveText('Select a Category for Quiz');
+    await expect(page.locator('h2')).toHaveText('Quiz Setup');
   });
 
   test('should navigate to Stats Page', async ({ page }) => {
     await page.click('text=Stats Page');
     await expect(page).toHaveURL(/\/stats$/);
-    await expect(page.locator('h2')).toHaveText('Statistics Page');
+    await expect(page.locator('h2')).toHaveText('Your Statistics');
   });
 });

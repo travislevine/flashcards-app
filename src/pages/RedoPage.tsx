@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { flashcards } from '../data/flashcards';
 import Flashcard from '../components/Flashcard';
+import { useStats, type AppStats } from '../hooks/useStats';
 
 /**
  * Manages the redo study session for a given category.
@@ -9,6 +10,7 @@ import Flashcard from '../components/Flashcard';
  */
 const RedoPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
+  const { recordAnswer } = useStats();
   const [searchParams] = useSearchParams();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [wrongCards, setWrongCards] = useState<string[]>([]);
@@ -80,10 +82,12 @@ const RedoPage: React.FC = () => {
   const currentCard = categoryCards[currentIndex];
   
   const handleRight = () => {
+    recordAnswer(category as keyof AppStats, true);
     setCurrentIndex(prev => prev + 1);
   };
   
   const handleWrong = () => {
+    recordAnswer(category as keyof AppStats, false);
     setWrongCards(prev => [...prev, currentCard.id]);
     setCurrentIndex(prev => prev + 1);
   };
